@@ -1,0 +1,182 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"45 mcc_generated_files/TCPIPLibrary/lfsr.c
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 45: static uint8_t sequenceIndex = 0;
+[v _sequenceIndex `uc ~T0 @X0 1 s ]
+[i _sequenceIndex
+-> -> 0 `i `uc
+]
+"46
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 46: const lfsr_t xorSequences[] = {0x41,0x44,0x47,0x48,0x4E,0x53,0x55,0x5C,0x5F,0x60,0x65,0x69,0x6A,0x72,0x77,0x78,0x7B,0x7E};
+[v _xorSequences `Cuc ~T0 @X0 -> 18 `i e ]
+[i _xorSequences
+:U ..
+-> -> 65 `i `uc
+-> -> 68 `i `uc
+-> -> 71 `i `uc
+-> -> 72 `i `uc
+-> -> 78 `i `uc
+-> -> 83 `i `uc
+-> -> 85 `i `uc
+-> -> 92 `i `uc
+-> -> 95 `i `uc
+-> -> 96 `i `uc
+-> -> 101 `i `uc
+-> -> 105 `i `uc
+-> -> 106 `i `uc
+-> -> 114 `i `uc
+-> -> 119 `i `uc
+-> -> 120 `i `uc
+-> -> 123 `i `uc
+-> -> 126 `i `uc
+..
+]
+"47
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 47: lfsr_t xor_mask = 0x41;
+[v _xor_mask `uc ~T0 @X0 1 e ]
+[i _xor_mask
+-> -> 65 `i `uc
+]
+"48
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 48: lfsr_t lfsr_value = 0x40;
+[v _lfsr_value `uc ~T0 @X0 1 e ]
+[i _lfsr_value
+-> -> 64 `i `uc
+]
+"50
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 50: lfsr_t lfsr_getSequence(void)
+[v _lfsr_getSequence `(uc ~T0 @X0 1 ef ]
+"51
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 51: {
+{
+[e :U _lfsr_getSequence ]
+[f ]
+"52
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 52:  return xorSequences[sequenceIndex];
+[e ) *U + &U _xorSequences * -> _sequenceIndex `ux -> -> # *U &U _xorSequences `ui `ux ]
+[e $UE 1  ]
+"53
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 53: }
+[e :UE 1 ]
+}
+"55
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 55: int lfsr_getSequenceCount(void)
+[v _lfsr_getSequenceCount `(i ~T0 @X0 1 ef ]
+"56
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 56: {
+{
+[e :U _lfsr_getSequenceCount ]
+[f ]
+"57
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 57:  return sizeof(xorSequences)/sizeof(*xorSequences);
+[e ) -> / -> # _xorSequences `ui -> # *U &U _xorSequences `ui `i ]
+[e $UE 2  ]
+"58
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 58: }
+[e :UE 2 ]
+}
+"60
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 60: void lfsr_reset(void)
+[v _lfsr_reset `(v ~T0 @X0 1 ef ]
+"61
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 61: {
+{
+[e :U _lfsr_reset ]
+[f ]
+"62
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 62:  lfsr_value = 0x40;
+[e = _lfsr_value -> -> 64 `i `uc ]
+"63
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 63: }
+[e :UE 3 ]
+}
+"65
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 65: void lfsr_setSequence(uint16_t s)
+[v _lfsr_setSequence `(v ~T0 @X0 1 ef1`us ]
+"66
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 66: {
+{
+[e :U _lfsr_setSequence ]
+"65
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 65: void lfsr_setSequence(uint16_t s)
+[v _s `us ~T0 @X0 1 r1 ]
+"66
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 66: {
+[f ]
+"67
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 67:  s %= sizeof(xorSequences)/sizeof(*xorSequences);
+[e =% _s / -> # _xorSequences `ui -> # *U &U _xorSequences `ui ]
+"68
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 68:  xor_mask = xorSequences[s];
+[e = _xor_mask *U + &U _xorSequences * -> _s `ux -> -> # *U &U _xorSequences `ui `ux ]
+"69
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 69: }
+[e :UE 4 ]
+}
+"71
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 71: lfsr_t lfsr(void)
+[v _lfsr `(uc ~T0 @X0 1 ef ]
+"72
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 72: {
+{
+[e :U _lfsr ]
+[f ]
+"73
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 73:  unsigned char lsb = lfsr_value & 1u;
+[v _lsb `uc ~T0 @X0 1 a ]
+[e = _lsb -> & -> _lfsr_value `ui -> 1 `ui `uc ]
+"74
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 74:  lfsr_value >>= 1u;
+[e =>> _lfsr_value -> -> 1 `ui `uc ]
+"75
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 75:  if (lsb)
+[e $ ! != -> _lsb `i -> 0 `i 6  ]
+"76
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 76:   lfsr_value ^= xor_mask;
+[e =^ _lfsr_value -> _xor_mask `uc ]
+[e :U 6 ]
+"77
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 77:  return lfsr_value & 0x7fu;
+[e ) -> & -> _lfsr_value `ui -> 127 `ui `uc ]
+[e $UE 5  ]
+"78
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 78: }
+[e :UE 5 ]
+}
+"80
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 80: lfsr_t lfsrWithSeed(uint8_t lfsrSeed)
+[v _lfsrWithSeed `(uc ~T0 @X0 1 ef1`uc ]
+"81
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 81: {
+{
+[e :U _lfsrWithSeed ]
+"80
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 80: lfsr_t lfsrWithSeed(uint8_t lfsrSeed)
+[v _lfsrSeed `uc ~T0 @X0 1 r1 ]
+"81
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 81: {
+[f ]
+"82
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 82:     lfsr_value = lfsrSeed;
+[e = _lfsr_value _lfsrSeed ]
+"83
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 83:  unsigned char lsb = lfsr_value & 1u;
+[v _lsb `uc ~T0 @X0 1 a ]
+[e = _lsb -> & -> _lfsr_value `ui -> 1 `ui `uc ]
+"84
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 84:  lfsr_value >>= 1;
+[e =>> _lfsr_value -> -> 1 `i `uc ]
+"85
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 85:  if (lsb)
+[e $ ! != -> _lsb `i -> 0 `i 8  ]
+"86
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 86:   lfsr_value ^= xor_mask;
+[e =^ _lfsr_value -> _xor_mask `uc ]
+[e :U 8 ]
+"87
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 87:  return lfsr_value & 0x7fu;
+[e ) -> & -> _lfsr_value `ui -> 127 `ui `uc ]
+[e $UE 7  ]
+"88
+[; ;mcc_generated_files/TCPIPLibrary/lfsr.c: 88: }
+[e :UE 7 ]
+}

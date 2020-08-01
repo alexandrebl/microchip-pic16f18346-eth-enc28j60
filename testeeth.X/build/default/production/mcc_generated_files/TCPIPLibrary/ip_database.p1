@@ -1,0 +1,150 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"40 mcc_generated_files/TCPIPLibrary/ip_database.h
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.h: 40:  typedef struct {
+[s S9 `ul 1 `ul -> 2 `i `ul 1 `ul 1 `ul 1 `ul -> 2 `i `ul 1 ]
+[n S9 . ipv4_myAddress ipv4_dns ipv4_subnetMask ipv4_router ipv4_gateway ipv4_ntpAddress ipv4_tftpAddress ]
+"52 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\string.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\string.h: 52: char *strtok (char *restrict, const char *restrict);
+[v _strtok `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+"23 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdlib.h: 23: int atoi (const char *);
+[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
+"113 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"29 mcc_generated_files/TCPIPLibrary/ip_database.c
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 29: ip_db_info_t ip_database_info;
+[v _ip_database_info `S9 ~T0 @X0 1 e ]
+"31
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 31: void ipdb_init(void)
+[v _ipdb_init `(v ~T0 @X0 1 ef ]
+"32
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 32: {
+{
+[e :U _ipdb_init ]
+[f ]
+"33
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 33:     ip_database_info.ipv4_myAddress = 0xc0a80f67;
+[e = . _ip_database_info 0 -> 3232239463 `ul ]
+"34
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 34:     ip_database_info.ipv4_subnetMask = 0xffffff00;
+[e = . _ip_database_info 2 -> 4294967040 `ul ]
+"35
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 35:     ip_database_info.ipv4_router = 0xc0a80f01;
+[e = . _ip_database_info 3 -> 3232239361 `ul ]
+"36
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 36:     ip_database_info.ipv4_dns[0] = 0;
+[e = *U + &U . _ip_database_info 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ip_database_info 1 `ui `ux -> -> -> 0 `i `l `ul ]
+"37
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 37:     ip_database_info.ipv4_dns[1] = 0;
+[e = *U + &U . _ip_database_info 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _ip_database_info 1 `ui `ux -> -> -> 0 `i `l `ul ]
+"38
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 38:     for(uint8_t x=0; x < 2; x++)
+{
+[v _x `uc ~T0 @X0 1 a ]
+[e = _x -> -> 0 `i `uc ]
+[e $ < -> _x `i -> 2 `i 11  ]
+[e $U 12  ]
+[e :U 11 ]
+"39
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 39:         ip_database_info.ipv4_ntpAddress[x] = 0;
+[e = *U + &U . _ip_database_info 5 * -> _x `ux -> -> # *U &U . _ip_database_info 5 `ui `ux -> -> -> 0 `i `l `ul ]
+[e ++ _x -> -> 1 `i `uc ]
+[e $ < -> _x `i -> 2 `i 11  ]
+[e :U 12 ]
+}
+"40
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 40:     ip_database_info.ipv4_tftpAddress = 0;
+[e = . _ip_database_info 6 -> -> -> 0 `i `l `ul ]
+"42
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 42: }
+[e :UE 10 ]
+}
+"44
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 44: uint32_t makeStrToIpv4Address(char *str)
+[v _makeStrToIpv4Address `(ul ~T0 @X0 1 ef1`*uc ]
+"45
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 45: {
+{
+[e :U _makeStrToIpv4Address ]
+"44
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 44: uint32_t makeStrToIpv4Address(char *str)
+[v _str `*uc ~T0 @X0 1 r1 ]
+"45
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 45: {
+[f ]
+"46
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 46:     uint32_t ip_addr;
+[v _ip_addr `ul ~T0 @X0 1 a ]
+"47
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 47:     char *pch;
+[v _pch `*uc ~T0 @X0 1 a ]
+"48
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 48:     uint8_t x =3;
+[v _x `uc ~T0 @X0 1 a ]
+[e = _x -> -> 3 `i `uc ]
+"49
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 49:     pch = strtok(str,".");
+[e = _pch ( _strtok (2 , _str :s 1C ]
+"50
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 50:     while((pch != ((void*)0)))
+[e $U 15  ]
+[e :U 16 ]
+"51
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 51:     {
+{
+"52
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 52:        ((uint8_t *)&ip_addr)[x]= (uint16_t)atoi((const char*)pch);
+[e = *U + -> &U _ip_addr `*uc * -> _x `ux -> -> # *U -> &U _ip_addr `*uc `ui `ux -> -> ( _atoi (1 -> _pch `*Cuc `us `uc ]
+"53
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 53:         x--;
+[e -- _x -> -> 1 `i `uc ]
+"54
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 54:         pch = strtok (((void*)0),".");
+[e = _pch ( _strtok (2 , -> -> -> 0 `i `*v `*uc :s 2C ]
+"55
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 55:     }
+}
+[e :U 15 ]
+"50
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 50:     while((pch != ((void*)0)))
+[e $ != _pch -> -> -> 0 `i `*v `*uc 16  ]
+[e :U 17 ]
+"56
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 56:     return ip_addr;
+[e ) _ip_addr ]
+[e $UE 14  ]
+"57
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 57: }
+[e :UE 14 ]
+}
+"59
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 59: char *makeIpv4AddresstoStr(uint32_t addr)
+[v _makeIpv4AddresstoStr `(*uc ~T0 @X0 1 ef1`ul ]
+"60
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 60: {
+{
+[e :U _makeIpv4AddresstoStr ]
+"59
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 59: char *makeIpv4AddresstoStr(uint32_t addr)
+[v _addr `ul ~T0 @X0 1 r1 ]
+"60
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 60: {
+[f ]
+"61
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 61:     static char ip_str[15];
+[v F685 `uc ~T0 @X0 -> 15 `i s ip_str ]
+"63
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 63:     sprintf(ip_str,"%d.%d.%d.%d",((char*)&addr)[3],((char*)&addr)[2],((char*)&addr)[1],((char*)&addr)[0]);
+[e ( _sprintf (1 , , , , (. , &U F685 :s 3C -> *U + -> &U _addr `*uc * -> -> 3 `i `x -> -> # *U -> &U _addr `*uc `i `x `i -> *U + -> &U _addr `*uc * -> -> 2 `i `x -> -> # *U -> &U _addr `*uc `i `x `i -> *U + -> &U _addr `*uc * -> -> 1 `i `x -> -> # *U -> &U _addr `*uc `i `x `i -> *U + -> &U _addr `*uc * -> -> 0 `i `x -> -> # *U -> &U _addr `*uc `i `x `i ]
+"65
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 65:     return ip_str;
+[e ) &U F685 ]
+[e $UE 18  ]
+"66
+[; ;mcc_generated_files/TCPIPLibrary/ip_database.c: 66: }
+[e :UE 18 ]
+}
+[p f _sprintf 8388736 ]
+[a 3C 37 100 46 37 100 46 37 100 46 37 100 0 ]
+[a 1C 46 0 ]
+[a 2C 46 0 ]
